@@ -1,0 +1,32 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * Copyright © MageViku, Inc. All rights reserved.
+ * See COPYING.txt for license details.
+ */
+-->
+<page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+      xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
+    <update handle="admin_login" />
+    <update handle="cp_tfa_screen" />
+    <head>
+        <css src="MageViku_LoginAuthentication::css/auth.css"/>
+        <css src="MageViku_LoginAuthentication::css/google.css"/>
+    </head>
+    <body>
+        <referenceContainer name="login.content">
+            <block class="MageViku\LoginAuthentication\Block\Otp\Auth" name="content"
+                   template="MageViku_LoginAuthentication::otp/request_otp.phtml">
+                <arguments>
+                    <argument name="jsLayout" xsi:type="array">
+                        <item name="components" xsi:type="array">
+                            <item name="tfa-otp-auth" xsi:type="array">
+                                <item name="component" xsi:type="string">MageViku_LoginAuthentication/js/otp/auth</item>
+                            </item>
+                        </item>
+                    </argument>
+                </arguments>
+            </block>
+        </referenceContainer>
+    </body>
+</page>

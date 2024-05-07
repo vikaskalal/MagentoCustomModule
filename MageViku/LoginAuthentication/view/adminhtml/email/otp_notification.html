@@ -1,0 +1,21 @@
+<!--
+/**
+ * Copyright © MageViku, Inc. All rights reserved.
+ * See COPYING.txt for license details.
+ */
+-->
+<!--@subject {{trans "Otp verification required for %name" name=$username}} @-->
+<!--@vars {
+"var username":"Admin User Name",
+"var store_name":"Current Store (Website) Name",
+"var otp":"Otp Code",
+"var otp_expired_time":"Otp Expired Time"
+} @-->
+<p>{{var username}},</p>
+<p>
+    {{trans "You are required to enter the below one time password (OTP) in order to login to admin."}}
+    <br/>
+    <h5>{{var otp|raw}}</h5>
+    <div>{{trans "This OTP will expire within %otpExpiredTime minutes." otpExpiredTime=$otp_expired_time}}</div>
+</p>
+<p>{{trans "Thank you."}}</p>

@@ -1,0 +1,22 @@
+{
+    "name": "mageViku/module-categoryattribute",
+    "description": "MageViku Mask Category Attribute update",
+    "type": "magento2-module",
+    "license": "GPL-3.0",
+    "authors": [
+        {
+            "name": "Vikas Kalal",
+            "email": "vikaskalal3@gmail.com"
+        }
+    ],
+    "minimum-stability": "dev",
+    "require": {},
+    "autoload": {
+        "files": [
+            "registration.php"
+        ],
+        "psr-4": {
+            "MageViku\\CategoryAttribute\\": ""
+        }
+    }
+}

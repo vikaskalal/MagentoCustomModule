@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!--
+/**
+ * Copyright © MageViku, Inc. All rights reserved.
+ * See COPYING.txt for license details.
+ */
+-->
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Config:etc/system_file.xsd">
+    <system>
+        <tab id="MageViku" translate="label" sortOrder="500">
+            <label>MageViku</label>
+        </tab>
+        <section id="mageviku_otp_login" translate="label" sortOrder="200"
+                 showInDefault="1" showInWebsite="1" showInStore="1">
+            <class>separator-top</class>
+            <label>OTP Login Authentication </label>
+            <tab>MageViku</tab>
+            <resource>MageViku_LoginAuthentication::cp_login_auth</resource>
+            <group id="mageviku_otp_authentication" translate="label" sortOrder="10"
+                   showInDefault="1" showInWebsite="1" showInStore="1">
+                <label>General Configuration</label>
+                <field id="enable" translate="label,tooltip" sortOrder="10" type="select"
+                       showInDefault="1" showInWebsite="1" showInStore="1" canRestore="1">
+                    <label>Is enabled</label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                </field>
+                <field id="otp_type" translate="label" type="select" sortOrder="11" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>OTP Type</label>
+                    <source_model>MageViku\LoginAuthentication\Model\Source\OtpType</source_model>
+                </field>
+                <field id="otp_length" translate="label comment" type="text" sortOrder="12" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>OTP Length</label>
+                </field>
+                <field id="expire_time" translate="label comment" type="text" sortOrder="13" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Expire Time</label>
+                    <comment>Time In Seconds.</comment>
+                </field>
+                <field id="email_template" translate="label comment" type="select" sortOrder="14" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Email Template For Otp Authentication</label>
+                    <comment>Email template chosen based on theme fallback when "Default" option is selected.</comment>
+                    <source_model>Magento\Config\Model\Config\Source\Email\Template</source_model>
+                </field>
+            </group>
+        </section>
+    </system>
+</config>

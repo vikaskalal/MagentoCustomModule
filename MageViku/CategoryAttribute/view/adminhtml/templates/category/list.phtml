@@ -1,0 +1,74 @@
+<?php
+/**
+ * @var $block \MageViku\CategoryAttribute\Block\Adminhtml\Catalog\Category\UpdateCategoryList
+ */
+
+$backUrl = $block->getUrl('catalog/category/index');
+?>
+<div class="main-cat" id="mainCat">
+    <div class="page-main-actions">
+        <div class="page-actions" data-ui-id="page-actions-toolbar-content-header">
+            <div class="page-actions-inner" data-title="Update Attributes">
+                <div class="page-actions-buttons">
+                    <button id="back" title="Back" type="button" class="action-default scalable back" onclick="window.location.href='<?= $backUrl; ?>'">
+                        <span><?= __("Back")?></span>
+                    </button>
+                    <button id="catNext" title="Next" type="button" class="action- scalable save primary ui-button ui-corner-all ui-widget" disabled>
+                        <span>Next</span>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div id="category-tree">
+        <div class="tree-actions">
+            <a id="collapseAll" href="#">Collapse All</a>
+            <span class="separator">|</span>
+            <a id="expandAll" href="#">Expand All</a>
+        </div>
+        <form action="<?= $this->getFormAction() ?>" id="catForm" method="post">
+            <input name="form_key" type="hidden" value="<?= $block->getFormKey() ?>" />
+            <div class="category-tree-wrapper tree-holder">
+                <ul class="x-tree-root-ct x-tree-lines">
+                    <li class="x-tree-node"><?= $block->renderCategories($block->getCategoryTree()); ?></li>
+                </ul>
+            </div>
+        </form>
+    </div>
+</div>
+<script type="text/x-magento-init">
+    {
+        "#mainCat": {
+            "MageViku_CategoryAttribute/js/category" : {
+                "formSelector" : "#catForm",
+                "formSubmitButtonSelector" : "#catNext",
+                "catCheckboxSelector" : ".category-checkbox"
+            }
+        }
+    }
+</script>
+<style>
+    .x-tree-node-el {
+        display: flex;
+        align-items: center;
+        flex-wrap: wrap;
+    }
+    #category-tree ul {
+        list-style-type: none;
+        padding-left: 17px;
+    }
+    .x-tree-node-el input[type="checkbox"] {
+        margin: 3px;
+    }
+    .x-tree-lines .x-tree-elbow-minus, .x-tree-lines .x-tree-elbow-plus {
+        width: 10px;
+        height: 10px;
+        background-position: -4px -4px;
+    }
+    .no-active-category + ul .active-category {
+        padding-left: 9px;
+    }
+    #category-tree label {
+        cursor: pointer;
+    }
+</style>

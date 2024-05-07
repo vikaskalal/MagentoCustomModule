@@ -1,0 +1,10 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * Copyright © MageViku, Inc. All rights reserved.
+ * See COPYING.txt for license details.
+ */
+-->
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Email:etc/email_templates.xsd">
+    <template id="mageviku_otp_login_mageviku_otp_authentication_email_template" label="Email Otp For Authentication" file="otp_notification.html" type="html" module="MageViku_LoginAuthentication" area="adminhtml"/>
+</config>
